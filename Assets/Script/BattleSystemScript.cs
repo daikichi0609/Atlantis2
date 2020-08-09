@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BattleSystemScript : MonoBehaviour {
     //データ取得
     public PlayerData PlayerData;
+    public EnemyData EnemyData;
     public BattleParam BattleParam;
     public Player player;
     public Enemy enemy;
@@ -90,7 +91,9 @@ public class BattleSystemScript : MonoBehaviour {
         //Enemy１体のhpをPlayerのatだけ減らす
         if (IsPlayerturn == true)
         {
-            PlayerAttack();     
+            enemy.OnDamage(player.at - EnemyData.df);
+        　　 AttackSound.Play();
+            flowchart.SendFungusMessage("attack");   
         }
     }
 

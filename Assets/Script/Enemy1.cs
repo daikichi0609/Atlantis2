@@ -39,7 +39,6 @@ public class Enemy1 : MonoBehaviour
         //パラメタ代入
         hp = EnemyData.maxHp;
         at = EnemyData.at;
-        maxCount = EnemyData.maxCount;
 
         count = maxCount;
         oldcount = count;

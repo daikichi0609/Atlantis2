@@ -44,10 +44,6 @@ public class Enemy : MonoBehaviour {
         //パラメタ代入
         hp = EnemyData.maxHp;
         at = EnemyData.at;
-        maxCount = EnemyData.maxCount;
-
-        count = maxCount;
-        oldcount = count;
 
         DestroySound.SetActive(false);
         //敵hpをスライダーで表示

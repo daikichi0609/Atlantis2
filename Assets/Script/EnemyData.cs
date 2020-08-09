@@ -17,6 +17,6 @@ public class EnemyData : ScriptableObject
 
     public int at;
 
-    public int maxCount;
+    public int df;
 
 }

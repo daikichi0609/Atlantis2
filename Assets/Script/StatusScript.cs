@@ -12,24 +12,47 @@ public class StatusScript : MonoBehaviour {
 	public Text AtText;
 	public Text DfText;
 	public Text HPText;
+	public Text SPText;
+	private float atmagni;
+	private float dfmagni;
+	private float hpmagni;
 
 	// Use this for initialization
 	void Start () {
-		AtSlider.value = PlayerData.AtMagni;
-		DfSlider.value = PlayerData.DfMagni;
-		HPSlider.value = PlayerData.HPMagni;
+		atmagni = PlayerData.AtMagni;
+		dfmagni = PlayerData.DfMagni;
+		hpmagni = PlayerData.HPMagni;
+
+		AtSlider.value = atmagni;
+		DfSlider.value = dfmagni;
+		HPSlider.value = hpmagni;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		PlayerData.AtMagni = AtSlider.value;
-		PlayerData.DfMagni = DfSlider.value;
-		PlayerData.HPMagni = HPSlider.value;
+		if(PlayerData.SP == 0){
+			
+		}
+		else{
+			atmagni = AtSlider.value;
+		    dfmagni = DfSlider.value;
+		    hpmagni = HPSlider.value;
+		}
+
+		if(atmagni - PlayerData.AtMagni >= 0.05f){
+			PlayerData.AtMagni = atmagni;
+			PlayerData.SP --;
+		}else if(atmagni - PlayerData.AtMagni <= -0.05f){
+			PlayerData.AtMagni = atmagni;
+			PlayerData.SP ++;
+		}
+
+		Debug.Log(atmagni);
 
 		AtSliderValuechanged();
 		DfSliderValuechanged();
 		HPSliderValuechanged();
-		
+		SPText.text = PlayerData.SP.ToString();
 	}
 
 	public void AtSliderValuechanged(){
@@ -37,28 +60,28 @@ public class StatusScript : MonoBehaviour {
 		//AtSlider.value = CalculateValue(AtSlider.value);
 		if(AtSlider.value < 0.5f){
 			AtSlider.value = 0.5f;
-			AtText.text = "0.5";
+			AtText.text = "0.50";
 			return;
 		}
-		AtText.text = PlayerData.AtMagni.ToString();
+		AtText.text = PlayerData.AtMagni.ToString("f2");
 	}
 
 	public void DfSliderValuechanged(){
 		if(DfSlider.value < 0.5f){
 			DfSlider.value = 0.5f;
-			DfText.text = "0.5";
+			DfText.text = "0.50";
 			return;
 		}
-		DfText.text = PlayerData.DfMagni.ToString();
+		DfText.text = PlayerData.DfMagni.ToString("f2");
 	}
 
 	public void HPSliderValuechanged(){
 		if(HPSlider.value < 0.5f){
 			HPSlider.value = 0.5f;
-			HPText.text = "0.5";
+			HPText.text = "0.50";
 			return;
 		}
-		HPText.text = PlayerData.HPMagni.ToString();
+		HPText.text = PlayerData.HPMagni.ToString("f2");
 	}
 
 	/*public float CalculateValue(float value){
