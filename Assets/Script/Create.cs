@@ -6,11 +6,16 @@ public class Create : MonoBehaviour
 {
     public RectTransform contentRectTransform;
     public Button button;
+    public string[] skillname;
     private void Start()
     {
-        for(int i = 1; i <= 30; i++){
+        for(int i = 0; i <= 29; i++){
             var obj = Instantiate(button,contentRectTransform);
-            obj.GetComponentInChildren<Text>().text = i.ToString();
+            obj.GetComponentInChildren<Text>().text = skillname[i];
         }
+    }
+
+    public void PushCommandButton(){
+
     }
 }

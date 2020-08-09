@@ -25945,6 +25945,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contentRectTransform: {fileID: 755423726}
   button: {fileID: 114451628405551690, guid: 2531650e0c0294d5eb581cba2f4b6dc2, type: 2}
+  skillname:
+  - "\u30D1\u30EF\u30FC\u30CA\u30C3\u30AF\u30EB"
+  - "\u30CA\u30C3\u30AF\u30EB\u30E9\u30C3\u30B7\u30E5"
+  - "\u30D0\u30EA\u30A2"
+  - "\u30D2\u30FC\u30EB"
+  - "\u30DA\u30CD\u30C8\u30EC\u30A4\u30C8\u30E9\u30B9\u30C8"
+  - "\u30DA\u30CD\u30C8\u30EC\u30A4\u30C8\u30E9\u30C3\u30B7\u30E5"
+  - "\u30CA\u30C3\u30AF\u30EB\u30D6\u30EC\u30A4\u30AF"
+  - "\u30A8\u30AF\u30B9\u30C6\u30F3\u30C8\u30A2\u30BF\u30C3\u30AF"
+  - "\u30AA\u30FC\u30EB\u30EC\u30F3\u30B8\u30A2\u30BF\u30C3\u30AF"
+  - "\u30EC\u30A4\u30B8"
+  - "\u30D7\u30ED\u30C6\u30AF\u30BF\u30FC"
+  - "\u30E1\u30AC\u30D0\u30EA\u30A2"
+  - "\u30E1\u30AC\u30D2\u30FC\u30EB"
+  - "\u30A6\u30A3\u30B6\u30FC\u30DE\u30B8\u30C3\u30AF"
+  - "\u30A2\u30FC\u30DE\u30FC\u30C0\u30A6\u30F3"
+  - "\u30DD\u30A4\u30BA\u30F3\u30B9\u30D7\u30E9\u30C3\u30B7\u30E5"
+  - "\u30DE\u30B8\u30AB\u30EB\u30D5\u30EC\u30A4\u30E0"
+  - "\u30AF\u30E9\u30E0\u30A2\u30C3\u30D7"
+  - "\u30A6\u30A3\u30FC\u30AF\u30CD\u30B9\u30DD\u30A4\u30F3\u30C8"
+  - "\u30EC\u30A4\u30B8II"
+  - "\u30D7\u30ED\u30C6\u30AF\u30BF\u30FCII"
+  - "\u30AE\u30AC\u30D0\u30EA\u30A2 "
+  - "\u30AE\u30AC\u30D2\u30FC\u30EB"
+  - "\u30A6\u30A3\u30B6\u30FC\u30DE\u30B8\u30C3\u30AF\u2161"
+  - "\u30A2\u30FC\u30DE\u30FC\u30C0\u30A6\u30F3II"
+  - "\u30EA\u30D5\u30C8\u30D0\u30D5"
+  - "\u30A2\u30D6\u30BD\u30EB\u30FC\u30C8\u30B9\u30BF\u30F3\u30B9"
+  - "\u30EC\u30A4\u30B8\u2162"
+  - "\u30AB\u30A6\u30F3\u30BF\u30FC\u30B9\u30DE\u30C3\u30B7\u30E5"
+  - "\u30EB\u30A4\u30F3\u30AB\u30FC\u30B9"
 --- !u!114 &755423728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62966,7 +62997,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1652379194}
-  - component: {fileID: 1652379193}
   m_Layer: 0
   m_Name: CommandScript
   m_TagString: Untagged
@@ -62974,19 +63004,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1652379193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1652379192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f9b2d7e07394fbe8f9d201881025ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contentRectTransform: {fileID: 755423726}
-  button: {fileID: 114451628405551690, guid: 2531650e0c0294d5eb581cba2f4b6dc2, type: 2}
 --- !u!4 &1652379194
 Transform:
   m_ObjectHideFlags: 0

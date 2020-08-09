@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   maxHp: 9
-  at: 1
+  SP: 0
+  CP: 0
+  AtMagni: 0.5
+  DfMagni: 1
+  HPMagni: 1
   breakmode: 0
