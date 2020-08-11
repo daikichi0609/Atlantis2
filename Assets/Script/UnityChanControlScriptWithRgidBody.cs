@@ -43,7 +43,7 @@ namespace UnityChan
         float h;
         float v;
         //バトル遷移確認パネル
-        public GameObject battle;
+        public GameObject BattlePanel;
         public AudioSource ApiSound;
         public GameObject Camera;
         public GameObject ApiCamera;
@@ -88,9 +88,6 @@ namespace UnityChan
 		// 初期化
 		void Start ()
 		{
-            //最初に表示しない
-            battle.SetActive(false);
-            
             // Animatorコンポーネントを取得する
             anim = GetComponent<Animator> ();
 			// CapsuleColliderコンポーネントを取得する（カプセル型コリジョン）
@@ -230,7 +227,7 @@ namespace UnityChan
                     //確認画面を表示
                     //移動を制限
                     BattleParam.Stage = col.gameObject.GetComponent<DarkHeartScript>().Stage;
-                    battle.SetActive(true);
+                    BattlePanel.SetActive(true);
                     BattleParam.Stop = true;
                 }
                 if (PlayerData.breakmode)
@@ -391,68 +388,7 @@ namespace UnityChan
                 }
             }
         }
-
-        public void PushBattleButton()
-        {
-            //シーン移動の前に位置情報を記憶
-            BattleParam.pos = this.transform.position;
-            BattleParam.rot = this.transform.rotation;
-
-            BattleParam.Stop = false;
-
-            col.gameObject.GetComponent<DarkHeartScript>();
-
-            //バトルへ
-            if (BattleParam.Stage == 0)
-            {
-                SceneManager.LoadScene("Battle");
-            }
-            if (BattleParam.Stage == 1)
-            {
-                SceneManager.LoadScene("Battle 1");
-            }
-            if (BattleParam.Stage == 2)
-            {       
-                SceneManager.LoadScene("Battle 2");
-            }
-            if (BattleParam.Stage == 3)
-            {
-                SceneManager.LoadScene("Battle 3");
-            }
-            if (BattleParam.Stage == 4)
-            {
-                SceneManager.LoadScene("Battle 4");
-            }
-            if (BattleParam.Stage == 5)
-            {
-                SceneManager.LoadScene("Battle 5");
-            }
-            if (BattleParam.Stage == 6)
-            {
-                SceneManager.LoadScene("Battle 6");
-            }
-            if (BattleParam.Stage == 7)
-            {
-                SceneManager.LoadScene("Battle 7");
-            }
-            if (BattleParam.Stage == 8)
-            {
-                SceneManager.LoadScene("Battle 8");
-            }
-            if (BattleParam.Stage == 9)
-            {
-                SceneManager.LoadScene("Battle 9");
-            }
-        }
-
-        public void PushReverseButton()
-        {
-            //戻る
-            //移動制限を解除
-            battle.SetActive(false);
-            BattleParam.Stop = false;
-        }
-
+            //col.gameObject.GetComponent<DarkHeartScript>();
 
         /*
         void OnGUI ()

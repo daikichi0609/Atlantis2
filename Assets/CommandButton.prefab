@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222479470571317080}
   - component: {fileID: 114790233551813880}
   - component: {fileID: 114451628405551690}
+  - component: {fileID: 114819973488266572}
   m_Layer: 5
   m_Name: CommandButton
   m_TagString: Untagged
@@ -66,8 +67,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: c5b0c64c7b60359469073c540d8df04f, type: 3}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -158,6 +159,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114819973488266572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902747056211014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98d1ddb0b766437aa342215effdf632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommandNum: 29
 --- !u!222 &222367407901722906
 CanvasRenderer:
   m_ObjectHideFlags: 1

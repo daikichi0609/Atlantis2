@@ -13,6 +13,8 @@ public class PlayerData : ScriptableObject
     //public string playerName;
 
     public int maxHp;
+
+    public int Lv;
     public int SP; //ステータス割り振りポイント
     public int CP;　//技取得ポイント
     public float AtMagni;
