@@ -29,10 +29,9 @@ public class BattleSystemScript : MonoBehaviour {
     public AudioSource BattleBGM;
     //ボタン
     public Button AttackButton;
-    public Button BarrierButton;
-    public Button DelayButton;
-    public Button UniverseButon;
-    public Button ChangeButton;
+    public Button StartCommandButton;
+    public Button StarButton;
+    public Button[] CommandButton;
     //UI
     public GameObject[] UI;
     public GameObject Canvas;
@@ -48,9 +47,9 @@ public class BattleSystemScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //最初に表示しない
-        WinResult.SetActive(false);
-        LoseResult.SetActive(false);
+
+
+
 
         if (BattleParam.Aries)
         {
@@ -85,6 +84,10 @@ public class BattleSystemScript : MonoBehaviour {
             }
         }
 	}
+
+    public void PushCommandButton(){
+
+    }
 
     public void PushAttackButton()
     {
@@ -183,7 +186,6 @@ public class BattleSystemScript : MonoBehaviour {
     {
         //PlayerのHPの最大値を＋１する
         //ダークハートを破壊してピンクのハートを生成する
-        PlayerData.maxHp++;
         PlayerData.breakmode = true;
         BattleParam.destroy[BattleParam.Stage] = true;
         //シーン移動

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     //各パラメタ
     public int hp;
     public int at;
-
+    public int df;
     int oldhp;
     //残りhpUI
     public Text hpText;
@@ -21,11 +21,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //パラメタ代入
-        hp = PlayerData.maxHp;
-        //at = PlayerData.At;
-        oldhp = hp;
-        //Playerのhpを表示
-        hpText.text = "×" + hp.ToString();
+        
     }
 	
 	// Update is called once per frame

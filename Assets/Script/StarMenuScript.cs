@@ -5,8 +5,17 @@ using UnityEngine.UI;
 
 public class StarMenuScript : MonoBehaviour {
 
-	public Text ExplainText;
+	public BattleParam BattleParam;
+	public Text EffectText;
+	public Text CommandNameText;
 	public Text CommandText;
+	private bool Leo;
+	private bool Aries;
+	private bool Sagittarius;
+	public Button DecideButton;
+	public GameObject[] StarMenu;
+	public GameObject ResultMenu;
+
 
 	// Use this for initialization
 	void Start () {
@@ -15,21 +24,64 @@ public class StarMenuScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.Space)){
+			Leo = false;
+			Aries = false;
+			Sagittarius = false;
+		}
+		if(!Leo && !Aries && !Sagittarius){
+			DecideButton.interactable = false;
+		}else{
+			DecideButton.interactable = true;
+		}
 	}
 
 	public void PushLeoButton(){
-		ExplainText.text = "基礎攻撃力を1.2倍にする";
-		CommandText.text = "攻撃力×6.0のダメージ 与えたダメージの2割を反動で受ける";
+		Leo = true;
+		Aries = false;
+		Sagittarius = false;
+		EffectText.text = "基礎攻撃力を1.2倍にする";
+		CommandNameText.text = "『アルギエバ』";
+		CommandText.text = "しし座の力を借りて、相手に攻撃力×6.0のダメージ さらに3Tの間、敵の攻撃力を50%ダウンさせる";
 	}
 
 	public void PushAriesButton(){
-		ExplainText.text = "基礎防御力を1.2倍にする";
-		CommandText.text = "防御力×3.0（3T）その後、ダメージを受けた回数が10回以上なら、敵全体に自身の防御力×10のダメージ";
+		Leo = false;
+		Aries = true;
+		Sagittarius = false;
+		EffectText.text = "基礎防御力を1.2倍にする";
+		CommandNameText.text = "『バラニーコール』";
+		CommandText.text = "おうし座の力を借りて、3Tの間、自分の防御力を3倍にする　相手全体に自身の防御力×10のダメージ";
 	}
 
 	public void PushSagittariusButton(){
-		ExplainText.text = "基礎体力を1.2倍にする";
-		CommandText.text = "敵1体に攻撃力Xの貫通ダメージ 自分のHPをX回復 Xはこのとき自分が受けていたダメージ";
+		Leo = false;
+		Aries = false;
+		Sagittarius = true;
+		EffectText.text = "基礎体力を1.2倍にする";
+		CommandNameText.text = "『カウスショット』";
+		CommandText.text = "いて座の力を借りて、相手に攻撃力Xの貫通ダメージ その後、自分のHPをX回復 Xはこのとき自分が受けていたダメージ";
+	}
+
+	public void PushDecideButton(){
+		if(Leo){
+			BattleParam.Leo = true;
+			BattleParam.Aries = false;
+			BattleParam.Sagittarius = false;
+			Leo = false;
+		}else if(Aries){
+			BattleParam.Leo = false;
+			BattleParam.Aries = true;
+			BattleParam.Sagittarius = false;
+			Aries = false;
+		}else if(Sagittarius){
+			BattleParam.Leo = false;
+			BattleParam.Aries = false;
+			BattleParam.Sagittarius = true;
+			Sagittarius = false;
+		}
+		StarMenu[0].SetActive(false);
+		StarMenu[1].SetActive(false);
+		ResultMenu.SetActive(true);
 	}
 }

@@ -32,7 +32,7 @@ public class StoneScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (PlayerData.maxHp >= 15)
+        if (PlayerData.Lv >= 15)
         {
             if (BattleParam.night)
             {

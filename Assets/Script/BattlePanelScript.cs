@@ -16,6 +16,8 @@ public class BattlePanelScript : MonoBehaviour {
 	public Text Enemytitle;
 	public Text Enemyexplanation;
 	public Button[] EnemyCommandButton;
+    private int Enemys;
+    private int Waves;
 
 	// Use this for initialization
 	void Start () {
@@ -92,31 +94,64 @@ public class BattlePanelScript : MonoBehaviour {
 
 		if (BattleParam.Stage == 0)
             {
-                sprite = Resources.Load<Sprite>("goburin");
+                sprite = Resources.Load<Sprite>("goblin");
 			    Enemyimage = Enemyimage.GetComponent<Image>();
 			    Enemyimage.sprite = sprite;
 			    Enemytitle.text = "ゴブリン";
-				Enemyexplanation.text = "赤いぼうしがチャームポイント。攻撃力が高い。";
+				Enemyexplanation.text = "赤いぼうしがチャームポイント。攻撃力が少し高い。";
 				EnemyCommandButton[0].GetComponentInChildren<Text>().text = "ラフスラッシュ";
 				EnemyCommandButton[1].GetComponentInChildren<Text>().text = "レイジ";
 				EnemyCommandButton[2].GetComponentInChildren<Text>().text = "ーーーーー";
 				EnemyCommandButton[3].GetComponentInChildren<Text>().text = "ーーーーー";
+                
             }
             if (BattleParam.Stage == 1)
             {
-                
+                sprite = Resources.Load<Sprite>("kinoko");
+			    Enemyimage = Enemyimage.GetComponent<Image>();
+			    Enemyimage.sprite = sprite;
+			    Enemytitle.text = "マッシュ";
+				Enemyexplanation.text = "食べたら美味しいかもしれないきのこ。体力が少し高い。";
+				EnemyCommandButton[0].GetComponentInChildren<Text>().text = "ホウシ";
+				EnemyCommandButton[1].GetComponentInChildren<Text>().text = "テイクルート";
+				EnemyCommandButton[2].GetComponentInChildren<Text>().text = "ーーーーー";
+				EnemyCommandButton[3].GetComponentInChildren<Text>().text = "ーーーーー";
             }
             if (BattleParam.Stage == 2)
             {       
-                
+                sprite = Resources.Load<Sprite>("slime");
+			    Enemyimage = Enemyimage.GetComponent<Image>();
+			    Enemyimage.sprite = sprite;
+			    Enemytitle.text = "スライム";
+				Enemyexplanation.text = "お馴染みのスライム。防御力が少し高い。";
+				EnemyCommandButton[0].GetComponentInChildren<Text>().text = "スライムショット";
+				EnemyCommandButton[1].GetComponentInChildren<Text>().text = "バリア";
+				EnemyCommandButton[2].GetComponentInChildren<Text>().text = "ーーーーー";
+				EnemyCommandButton[3].GetComponentInChildren<Text>().text = "ーーーーー";
             }
             if (BattleParam.Stage == 3)
             {
-                
+                sprite = Resources.Load<Sprite>("seed");
+			    Enemyimage = Enemyimage.GetComponent<Image>();
+			    Enemyimage.sprite = sprite;
+			    Enemytitle.text = "シード";
+				Enemyexplanation.text = "凶暴な花。非常に攻撃的。";
+				EnemyCommandButton[0].GetComponentInChildren<Text>().text = "バイト";
+				EnemyCommandButton[1].GetComponentInChildren<Text>().text = "パワーウィップ";
+				EnemyCommandButton[2].GetComponentInChildren<Text>().text = "テイクルート";
+				EnemyCommandButton[3].GetComponentInChildren<Text>().text = "ーーーーー";
             }
             if (BattleParam.Stage == 4)
             {
-                
+                sprite = Resources.Load<Sprite>("goblin");
+			    Enemyimage = Enemyimage.GetComponent<Image>();
+			    Enemyimage.sprite = sprite;
+			    Enemytitle.text = "ゴブリン";
+				Enemyexplanation.text = "赤いぼうしがチャームポイント。攻撃力が少し高い。";
+				EnemyCommandButton[0].GetComponentInChildren<Text>().text = "ラフスラッシュ";
+				EnemyCommandButton[1].GetComponentInChildren<Text>().text = "レイジ";
+				EnemyCommandButton[2].GetComponentInChildren<Text>().text = "ランダムスラッシュ";
+				EnemyCommandButton[3].GetComponentInChildren<Text>().text = "ーーーーー";
             }
             if (BattleParam.Stage == 5)
             {

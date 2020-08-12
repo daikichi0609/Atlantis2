@@ -11,10 +11,10 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     //public string playerName;
-
-    public int maxHp;
-
     public int Lv;
+    public int BasicAt;
+    public int BasicDf;
+    public int BasicHP;
     public int SP; //ステータス割り振りポイント
     public int CP;　//技取得ポイント
     public float AtMagni;

@@ -22,11 +22,55 @@ public class EnemyCommandButtonScript : MonoBehaviour {
 
 		
 		if(Name == "ラフスラッシュ"){
-			EnemyCommandexplanation.text = "攻撃力×2のダメージ　低確率で代わりに攻撃力×4のダメージ";
+			EnemyCommandexplanation.text = "刃物で切りつけて、相手に攻撃力×2のダメージ　低確率で代わりに攻撃力×4のダメージ";
 			CT.text = "CT：3";
 		}
+		else if(Name == "ダブルスラッシュ"){
+			EnemyCommandexplanation.text = "刃物で2回切りつけて、相手に攻撃力×1.5のダメージ　これを2回行う";
+			CT.text = "CT：10";
+		}
 		else if(Name == "レイジ"){
-			EnemyCommandexplanation.text = "4Tの間、攻撃力×2.0";
+			EnemyCommandexplanation.text = "怒りによって、4Tの間、自分の攻撃力を2倍にする";
+			CT.text = "CT：10";
+		}
+		else if(Name == "ほうし"){
+			EnemyCommandexplanation.text = "ほうしをばらまいて、4Tの間、相手の攻撃力を50%ダウン";
+			CT.text = "CT：10";
+		}
+		else if(Name == "テイクルート"){
+			EnemyCommandexplanation.text = "根を張って、4Tの間、ターン終了時に自分の体力を1割回復";
+			CT.text = "CT：10";
+		}
+		else if(Name == "スライムショット"){
+			EnemyCommandexplanation.text = "スライムを飛ばして、相手に攻撃力×2のダメージ　低確率でさらに相手の攻撃力を30%ダウン";
+			CT.text = "CT：3";
+		}
+		else if(Name == "ベノムショット"){
+			EnemyCommandexplanation.text = "毒液を飛ばして、相手に攻撃力×1のダメージ　さらに4Tの間、毒状態にする";
+			CT.text = "CT：8";
+		}
+		else if(Name == "バリア"){
+			EnemyCommandexplanation.text = "6Tの間、被ダメージを5割カット";
+			CT.text = "CT：10";
+		}
+		else if(Name == "バイト"){
+			EnemyCommandexplanation.text = "噛み付いて、相手に攻撃力×2のダメージ　低確率でさらに相手の防御力を30%ダウン";
+			CT.text = "CT：3";
+		}
+		else if(Name == "パワーウィップ"){
+			EnemyCommandexplanation.text = "ツタを叩きつけて、相手に攻撃力×3のダメージ";
+			CT.text = "CT：10";
+		}
+		else if(Name == ""){
+			EnemyCommandexplanation.text = "根を張って、4Tの間、ターン終了時に自分の体力を1割回復";
+			CT.text = "CT：10";
+		}
+		else if(Name == ""){
+			EnemyCommandexplanation.text = "スライムを飛ばして、相手に攻撃力×2のダメージ　低確率でさらに敵の攻撃力を30%ダウン";
+			CT.text = "CT：3";
+		}
+		else if(Name == ""){
+			EnemyCommandexplanation.text = "6Tの間、被ダメージを5割カット";
 			CT.text = "CT：10";
 		}
 		else{

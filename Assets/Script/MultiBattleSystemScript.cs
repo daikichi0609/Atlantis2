@@ -69,28 +69,6 @@ public class MultiBattleSystemScript : MonoBehaviour
         Target1.SetActive(false);
         target = 0;
 
-        //maxHpの値によってアンロック
-        //if (PlayerData.maxHp >= 10)
-        //{
-        //    DelayButton.interactable = true;
-        //}
-        //else
-        //{
-        //    DelayButton.interactable = false;
-        //}
-
-        DelayButton.interactable = (PlayerData.maxHp >= 10);
-
-        if (PlayerData.maxHp >= 20)
-        {
-            UniverseButon.interactable = true;
-        }
-        else
-        {
-            UniverseButon.interactable = false;
-        }
-        ChangeButton.interactable = true;
-
         if (BattleParam.Aries)
         {
             Aries.SetActive(true);
@@ -652,7 +630,6 @@ public class MultiBattleSystemScript : MonoBehaviour
     {
         //PlayerのHPの最大値を＋１する
         //ダークハートを破壊してピンクのハートを生成する
-        PlayerData.maxHp++;
         PlayerData.breakmode = true;
         BattleParam.destroy[BattleParam.Stage] = true;
     
