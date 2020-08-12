@@ -20,6 +20,9 @@ public class PlayerData : ScriptableObject
     public float AtMagni;
     public float DfMagni;
     public float HPMagni;
+    public int AT;
+    public int DF;
+    public int HP;
     //触れたダークハートを破壊してピンクのハートを生成
     public bool breakmode;
 

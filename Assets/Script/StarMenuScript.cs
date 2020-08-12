@@ -15,6 +15,8 @@ public class StarMenuScript : MonoBehaviour {
 	public Button DecideButton;
 	public GameObject[] StarMenu;
 	public GameObject ResultMenu;
+	public Image Starimage;
+	private Sprite sprite;
 
 
 	// Use this for initialization
@@ -28,6 +30,7 @@ public class StarMenuScript : MonoBehaviour {
 			Leo = false;
 			Aries = false;
 			Sagittarius = false;
+			ResultMenu.SetActive(false);
 		}
 		if(!Leo && !Aries && !Sagittarius){
 			DecideButton.interactable = false;
@@ -51,7 +54,7 @@ public class StarMenuScript : MonoBehaviour {
 		Sagittarius = false;
 		EffectText.text = "基礎防御力を1.2倍にする";
 		CommandNameText.text = "『バラニーコール』";
-		CommandText.text = "おうし座の力を借りて、3Tの間、自分の防御力を3倍にする　相手全体に自身の防御力×10のダメージ";
+		CommandText.text = "おひつじ座の力を借りて、3Tの間、自分の防御力を3倍にする　その後、相手全体に自身の防御力×10のダメージ";
 	}
 
 	public void PushSagittariusButton(){
@@ -64,24 +67,35 @@ public class StarMenuScript : MonoBehaviour {
 	}
 
 	public void PushDecideButton(){
+
+		StarMenu[0].SetActive(false);
+		StarMenu[1].SetActive(false);
+		ResultMenu.SetActive(true);
+
 		if(Leo){
 			BattleParam.Leo = true;
 			BattleParam.Aries = false;
 			BattleParam.Sagittarius = false;
 			Leo = false;
+			sprite = Resources.Load<Sprite>("shishiza");
+	        Starimage = Starimage.GetComponent<Image>();
+		    Starimage.sprite = sprite;
 		}else if(Aries){
 			BattleParam.Leo = false;
 			BattleParam.Aries = true;
 			BattleParam.Sagittarius = false;
 			Aries = false;
+			sprite = Resources.Load<Sprite>("ohitujiza");
+	        Starimage = Starimage.GetComponent<Image>();
+		    Starimage.sprite = sprite;
 		}else if(Sagittarius){
 			BattleParam.Leo = false;
 			BattleParam.Aries = false;
 			BattleParam.Sagittarius = true;
 			Sagittarius = false;
+			sprite = Resources.Load<Sprite>("iteza");
+	        Starimage = Starimage.GetComponent<Image>();
+		    Starimage.sprite = sprite;
 		}
-		StarMenu[0].SetActive(false);
-		StarMenu[1].SetActive(false);
-		ResultMenu.SetActive(true);
 	}
 }

@@ -23,10 +23,6 @@ public class StatusScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PlayerData.BasicAt = 100 + (PlayerData.Lv - 1) * 2;
-		PlayerData.BasicDf = 50 + (PlayerData.Lv - 1) * 1;
-		PlayerData.BasicHP = 500 + (PlayerData.Lv - 1) * 50;
-		
 		atmagni = PlayerData.AtMagni;
 		dfmagni = PlayerData.DfMagni;
 		hpmagni = PlayerData.HPMagni;

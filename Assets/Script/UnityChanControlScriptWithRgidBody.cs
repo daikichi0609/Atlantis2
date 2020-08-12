@@ -25,9 +25,6 @@ namespace UnityChan
         //ピンクのハート
         public GameObject BigHeart;
         public GameObject BigHeart1;
-        //遅延用
-        float second;
-        public GameObject Status;
         //上手く音を流すためにゲームオブジェクトとして扱う
         public GameObject RunningSound;
         public GameObject WalkingSound;

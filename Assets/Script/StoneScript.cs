@@ -11,11 +11,6 @@ public class StoneScript : MonoBehaviour {
     public GameObject MoonStone;
     public GameObject UnStar;
     public GameObject Star;
-
-    public GameObject LeoUI;
-    public GameObject AriesUI;
-    public GameObject SagittariusUI;
-
     public Material morningsky;
     public Material nightsky;
 
@@ -77,28 +72,6 @@ public class StoneScript : MonoBehaviour {
             morning[1].SetActive(true);
             night[0].SetActive(false);
             night[1].SetActive(false);
-        }
-
-        if (!BattleParam.Stop)
-        {
-            if (BattleParam.Leo)
-            {
-                LeoUI.SetActive(true);
-                AriesUI.SetActive(false);
-                SagittariusUI.SetActive(false);
-            }
-            if (BattleParam.Aries)
-            {
-                AriesUI.SetActive(true);
-                LeoUI.SetActive(false);
-                SagittariusUI.SetActive(false);
-            }
-            if (BattleParam.Sagittarius)
-            {
-                SagittariusUI.SetActive(true);
-                LeoUI.SetActive(false);
-                AriesUI.SetActive(false);
-            }
         }
     }
 }
