@@ -8,7 +8,7 @@ public class CommandButtonScript : MonoBehaviour
 
   public PlayerData PlayerData;
   public int Num;
-  private Button Button;
+  public Button Button;
 
   // Use this for initialization
   void Start()
@@ -19,12 +19,8 @@ public class CommandButtonScript : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Num == 5)
-    {
-      if (PlayerData.Lv < 3)
-      {
-        Button.interactable = false;
-      }
-    }
+
   }
+
+
 }

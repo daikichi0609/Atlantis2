@@ -22,6 +22,8 @@ public class PlayerData : ScriptableObject
   public int DF;
   public int HP;
   public int[] CommandNum;
+  public string[] skillname;
+  public Color[] buttonColors;
   //触れたダークハートを破壊してピンクのハートを生成
   public bool breakmode;
 

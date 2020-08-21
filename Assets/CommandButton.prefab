@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222479470571317080}
   - component: {fileID: 114790233551813880}
   - component: {fileID: 114451628405551690}
+  - component: {fileID: 114717171223527602}
   m_Layer: 5
   m_Name: CommandButton
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -131,6 +132,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114717171223527602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902747056211014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98d1ddb0b766437aa342215effdf632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerData: {fileID: 11400000, guid: 93ac272aed00a024a8d4a8100104bac3, type: 2}
+  Num: 30
+  Button: {fileID: 0}
 --- !u!114 &114790233551813880
 MonoBehaviour:
   m_ObjectHideFlags: 1
