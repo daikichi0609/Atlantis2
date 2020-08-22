@@ -3,182 +3,212 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour {
-    //プレイヤーの情報
-    public Player player;
-    //敵の情報
-    public EnemyData EnemyData;
+public class Enemy : MonoBehaviour
+{
+  public Player player;
+  public EnemyData EnemyData;
+  public Fungus.Flowchart flowchart = null;
+  //各パラメタ
+  public int hp;
+  public int Maxhp;
+  public int at;
+  public int saveat;
+  public int df;
+  public int savedf;
+  public int[] ct;
+  public int[] maxct;
+  public bool[] atBuff;
+  public int[] atBufftime;
+  public bool[] dfBuff;
+  public int[] dfBufftime;
+  public int damage;
+  public float magni;
+  public int attackNum;
+  public int playerattackNum;
+  public GameObject DestroySound;
+  public GameObject EnemyImage;
 
-    public Fungus.Flowchart flowchart = null;
+  public AudioSource CountMaxSound;
+  public AudioSource BarrierSound;
 
-    //各パラメタ
-    public int hp;
-    public int count;
-    public int at;
+  bool barrier;
+  //hpUI
+  public Slider HPSlider;
 
-    int oldcount;
-    int maxCount;
-    
-    public GameObject DestroySound;
-    public GameObject EnemyImage;
-    public GameObject EnemyCountImage;
+  public enum EnemyType
+  {
+    GOBLIN,
+    SLIME
+  }
+  public EnemyType type;
 
-    public AudioSource CountMaxSound;
-    public AudioSource BarrierSound;
 
-    bool barrier;
-    //カウントUI
-    public Text counttext;
-    //hpUI
-    public Slider HPSlider;
-
-    public enum EnemyType{
-        GOBLIN,
-        SLIME
+  // Use this for initialization
+  void Start()
+  {
+    hp = EnemyData.maxHp;
+    at = EnemyData.at;
+    df = EnemyData.df;
+    Maxhp = hp;
+    saveat = at;
+    savedf = df;
+    for (int i = 1; i <= 4; i++)
+    {
+      maxct[i] = EnemyData.ct[i];
     }
-    public EnemyType type;
+
+    HPSlider.maxValue = Maxhp;
+    HPSlider.value = hp;
+  }
 
 
-    // Use this for initialization
-    void Start () {
-        //パラメタ代入
-        hp = EnemyData.maxHp;
-        at = EnemyData.at;
+  // Update is called once per frame
+  void Update()
+  {
 
-        DestroySound.SetActive(false);
-        //敵hpをスライダーで表示
-        HPSlider.maxValue = EnemyData.maxHp;
-        HPSlider.value = hp;
-        //カウントを表示
-        counttext.text = count.ToString();
-	}
-	
+  }
+  public void OnDamage(int _damage)
+  {
+    hp -= _damage - df;
+    if (hp <= 0)
+    {
+      hp = 0;
+    }
+    HPSlider.value = hp;
+  }
 
-	// Update is called once per frame
-	void Update () {
-        //カウントUI更新
-        if (oldcount != count)
+  public void OnSuccessiveDamage(int _damage)
+  {
+    attackNum = Random.Range(2, 6);
+    for (int i = 0; i <= attackNum; i++)
+    {
+      hp -= _damage - df;
+    }
+    if (hp <= 0)
+    {
+      hp = 0;
+    }
+    HPSlider.value = hp;
+  }
+  public void EnemyAction()
+  {
+    if (hp <= 0)
+    {
+      switch (type)
+      {
+        case EnemyType.GOBLIN:
+          flowchart.SendFungusMessage("goblinfinish");
+          break;
+        case EnemyType.SLIME:
+          flowchart.SendFungusMessage("enemyfinish1");
+          break;
+      }
+      return;
+    }
+
+    switch (type)
+    {
+      case EnemyType.GOBLIN:
+        if (ct[4] != 0)
         {
-            counttext.text = count.ToString();
-            oldcount = count;
+          ct[4] = maxct[4];
+          df = df + savedf;
+          dfBufftime[1] = 5;
+          dfBuff[1] = true;
+          flowchart.SendFungusMessage("goblinskill4");
+          Debug.Log("4");
+          return;
         }
-    }
-    public void CountDown()
-    {
-        //カウントを進める
-        
-        count--;
-        
-    }
-
-    public void OnDamage(int _damage)
-    {
-        //PlayerのatだけEnemyのhpを減らす
-        hp -= _damage;
-        if(hp <= 0)
+        else if (ct[3] != 0)
         {
-            hp = 0;
+          ct[3] = maxct[3];
+          at = at + saveat;
+          atBufftime[1] = 5;
+          atBuff[1] = true;
+          flowchart.SendFungusMessage("goblinskill3");
+          Debug.Log("3");
+          return;
         }
-        HPSlider.value = hp;
-    }
-    public void Barrier()
-    {
-        //バリア
-        barrier = true;
-    }
-    public void Delay()
-    {
-        //ディレイ
-        count++;
-    }
-    public void Finish()
-    {
-        //破壊して終了
-        DestroySound.SetActive(true);
-        EnemyImage.SetActive(false);
-        EnemyCountImage.SetActive(false);
-        counttext.text = null;
-    }
-
-    public void EnemyAction()
-    {
-        if(hp <= 0)
+        else if (ct[1] != 0)
         {
-            switch(type){
-                case EnemyType.GOBLIN:
-                    flowchart.SendFungusMessage("enemyfinish");
-                    break;
-                case EnemyType.SLIME:
-                    flowchart.SendFungusMessage("enemyfinish1");
-                    break;
-            }
-
-            return;
+          ct[1] = maxct[1];
+          magni = 2.0f;
+          damage = (int)(at * magni);
+          player.OnDamage(damage);
+          flowchart.SendFungusMessage("goblinskill1");
+          Debug.Log("1");
+          return;
         }
-
-        if (count == 0)
+        else if (ct[2] != 0)
         {
-            //バリアが無いならダメージを与える
-            if (barrier == false)
-            {
-               player.OnDamage(at);
-               switch(type){
-                case EnemyType.GOBLIN:
-                    flowchart.SendFungusMessage("enemyattack");
-                    break;
-                case EnemyType.SLIME:
-                    flowchart.SendFungusMessage("enemyattack1");
-                    break;
-                }
-            //    if(type == EnemyType.GOBLIN) flowchart.SendFungusMessage("enemyattack");
-            //    else if(type == EnemyType.SLIME) flowchart.SendFungusMessage("enemyattack1");
-                
-            }
-            else if (barrier == true)
-            {
-                BarrierSound.Play();
-                switch(type){
-                case EnemyType.GOBLIN:
-                    flowchart.SendFungusMessage("enemybarrier");
-                    break;
-                case EnemyType.SLIME:
-                    flowchart.SendFungusMessage("enemybarrier1");
-                    break;
-                }
-                //if(type == EnemyType.GOBLIN) flowchart.SendFungusMessage("enemybarrier");
-            }
+          ct[2] = maxct[2];
+          magni = 1.5f;
+          damage = (int)(at * magni);
+          playerattackNum = 2;
+          player.OnSuccessiveDamage(damage, playerattackNum);
+          flowchart.SendFungusMessage("goblinskill2");
+          Debug.Log("2");
+          return;
         }
-        else if(count != 0)
+        else
         {
-            switch(type){
-                case EnemyType.GOBLIN:
-                    flowchart.SendFungusMessage("enemyfinish");
-                    break;
-                case EnemyType.SLIME:
-                    flowchart.SendFungusMessage("enemyfinish1");
-                    break;
-                }
-            // flowchart.SendFungusMessage("enemyfinish");
+          damage = at;
+          player.OnDamage(damage);
+          flowchart.SendFungusMessage("goblinattack");
+          Debug.Log("0");
+          return;
         }
-        barrier = false;
+        break;
+    }
+  }
+
+  public void EnemyTurnFinish()
+  {
+    if (player.hp <= 0)
+    {
+      flowchart.SendFungusMessage("lose");
+      return;
     }
 
-    public void CountReset()
+    for (int i = 1; i <= 4; i++)
     {
-        CountMaxSound.Play();
-        count = maxCount;
+      if (ct[i] != 0)
+      {
+        ct[i]--;
+      }
     }
 
-    public void EnemyCountMax()
+    for (int i = 1; i <= 3; i++)
     {
-        switch(type){
-                case EnemyType.GOBLIN:
-                    flowchart.SendFungusMessage("countmax");
-                    break;
-                case EnemyType.SLIME:
-                    flowchart.SendFungusMessage("countmax1");
-                    break;
-                }
-        
+      if (atBufftime[i] != 0)
+      {
+        atBufftime[i]--;
+      }
+      if (dfBufftime[i] != 0)
+      {
+        dfBufftime[i]--;
+      }
     }
+
+    if (atBuff[1])
+    {
+      if (atBufftime[1] == 0)
+      {
+        at = at - saveat;
+      }
+    }
+    if (dfBuff[1])
+    {
+      if (dfBufftime[1] == 0)
+      {
+        df = df - savedf;
+      }
+    }
+    flowchart.SendFungusMessage("enemyturnback");
+  }
+  public void Finish()
+  {
+    DestroySound.SetActive(true);
+    EnemyImage.SetActive(false);
+  }
 }

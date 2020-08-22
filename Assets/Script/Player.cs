@@ -3,65 +3,115 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour {
-    //プレイヤーの情報
-    public PlayerData PlayerData;
-    //各パラメタ
-    public int hp;
-    public int at;
-    public int df;
-    int oldhp;
-    //残りhpUI
-    public Text hpText;
+public class Player : MonoBehaviour
+{
+  //プレイヤーの情報
+  public PlayerData PlayerData;
+  //各パラメタ
+  public int hp;
+  public int Maxhp;
+  public int at;
+  public int saveat;
+  public int df;
+  public int savedf;
+  public float magni;
+  public int[] ct;
+  public int[] maxct;
+  public int[] effecttime;
+  public bool[] barrier;
+  public Slider HPSlider;
+  public AudioSource DamageSound;
+  public bool poison;
 
-    public AudioSource DamageSound;
-
-    public bool poison;
-    
-    // Use this for initialization
-    void Start () {
-        //パラメタ代入
-        
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        //hp更新
-        if (oldhp != hp)
-        {
-            hpText.text = "×" + hp.ToString();
-            oldhp = hp;
-        }
-    }
-
-    public void OnDamage(int _damage)
+  // Use this for initialization
+  void Start()
+  {
+    //パラメタ代入
+    at = PlayerData.AT;
+    df = PlayerData.DF;
+    hp = PlayerData.HP;
+    Maxhp = hp;
+    for (int i = 1; i <= 4; i++)
     {
-        //EnemyのatだけPlayerのhpを減らす
-        hp -= _damage;
-        DamageSound.Play();
+      ct[i] = PlayerData.CT[PlayerData.CommandNum[i]];
+      maxct[i] = ct[i];
+    }
+    HPSlider.maxValue = Maxhp;
+    HPSlider.value = hp;
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+
+  }
+
+  public void OnDamage(int _damage)
+  {
+    if (barrier[1])
+    {
+      _damage = (int)(_damage * 0.5f);
+    }
+    hp -= _damage - df;
+    DamageSound.Play();
+    HPSlider.value = hp;
+  }
+
+  public void OnSuccessiveDamage(int _damage, int _attackNum)
+  {
+    if (barrier[1])
+    {
+      _damage = (int)(_damage * 0.5f);
+    }
+    for (int i = 0; i <= _attackNum; i++)
+    {
+      hp -= _damage - df;
+    }
+    if (hp <= 0)
+    {
+      hp = 0;
+    }
+    HPSlider.value = hp;
+  }
+
+  public void HealDamage(int _heal)
+  {
+    hp = hp + _heal;
+    if (hp > Maxhp)
+    {
+      hp = Maxhp;
+    }
+    HPSlider.value = hp;
+  }
+
+  public void PlayerTurnFinish()
+  {
+    for (int i = 1; i <= 4; i++)
+    {
+      if (ct[i] != 0)
+      {
+        ct[i]--;
+      }
     }
 
-    public void Barrier()
+    if (barrier[1])
     {
-        //バリア
-        hp = hp - 2;
+      if (effecttime[1] != 0)
+      {
+        effecttime[1]--;
+      }
+      if (effecttime[1] == 0)
+      {
+        barrier[1] = false;
+      }
     }
+  }
 
-    public void Delay()
-    {
-        //ディレイ
-        hp--;
-    }
+  public void Poison()
+  {
+    //毒
+    poison = true;
+  }
 
-    public void Universe()
-    {
-        //ユニバース
-        hp = hp - 3;
-    }
 
-    public void Poison()
-    {
-        //毒
-        poison = true;
-    }
 }

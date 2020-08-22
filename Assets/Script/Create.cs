@@ -168,10 +168,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 5)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×3.5の貫通ダメージを与える";
-    CTText.text = "4";
-    CommandNum = 5;
+    else if (PlayerData.Lv < 3)
+    {
+      ExplainText.text = "Lv3以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×3.5の貫通ダメージを与える";
+      CTText.text = "4";
+      CommandNum = 5;
+    }
   }
 
   void Skill6()
@@ -179,10 +190,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 6)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×1.2の貫通ダメージ　これをランダムに2~5回与える";
-    CTText.text = "4";
-    CommandNum = 6;
+    else if (PlayerData.Lv < 3)
+    {
+      ExplainText.text = "Lv3以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×1.2の貫通ダメージ　これをランダムに2~5回与える";
+      CTText.text = "4";
+      CommandNum = 6;
+    }
   }
 
   void Skill7()
@@ -190,10 +212,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 7)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×1.0のダメージ 敵がダメージカット展開中なら、代わりに攻撃力×4.0のダメージ";
-    CTText.text = "3";
-    CommandNum = 7;
+    else if (PlayerData.Lv < 3)
+    {
+      ExplainText.text = "Lv3以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ 敵がダメージカット展開中なら、代わりに攻撃力×4.0のダメージ";
+      CTText.text = "3";
+      CommandNum = 7;
+    }
   }
 
   void Skill8()
@@ -201,10 +234,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 8)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵全体に攻撃力×2.5のダメージを与える";
-    CTText.text = "3";
-    CommandNum = 8;
+    else if (PlayerData.Lv < 5)
+    {
+      ExplainText.text = "Lv5以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵全体に攻撃力×2.5のダメージを与える";
+      CTText.text = "3";
+      CommandNum = 8;
+    }
   }
 
   void Skill9()
@@ -212,10 +256,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 9)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵全体に攻撃力×2.5の貫通ダメージを与える";
-    CTText.text = "3";
-    CommandNum = 9;
+    else if (PlayerData.Lv < 5)
+    {
+      ExplainText.text = "Lv5以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵全体に攻撃力×2.5の貫通ダメージを与える";
+      CTText.text = "4";
+      CommandNum = 9;
+    }
   }
 
   void Skill10()
@@ -223,10 +278,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 10)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、自分の攻撃力×2.0";
-    CTText.text = "8";
-    CommandNum = 10;
+    else if (PlayerData.Lv < 6)
+    {
+      ExplainText.text = "Lv6以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、自分の攻撃力×2.0";
+      CTText.text = "8";
+      CommandNum = 10;
+    }
   }
 
   void Skill11()
@@ -234,10 +300,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 11)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、自分の防御力×2.0";
-    CTText.text = "8";
-    CommandNum = 11;
+    else if (PlayerData.Lv < 6)
+    {
+      ExplainText.text = "Lv6以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、自分の防御力×2.0";
+      CTText.text = "8";
+      CommandNum = 11;
+    }
   }
 
   void Skill12()
@@ -245,10 +322,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 12)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、被ダメージを8割カット";
-    CTText.text = "10";
-    CommandNum = 12;
+    else if (PlayerData.Lv < 6)
+    {
+      ExplainText.text = "Lv6以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、被ダメージを8割カット";
+      CTText.text = "10";
+      CommandNum = 12;
+    }
   }
 
   void Skill13()
@@ -256,10 +344,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 13)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "自分の体力を7割回復";
-    CTText.text = "12";
-    CommandNum = 13;
+    else if (PlayerData.Lv < 6)
+    {
+      ExplainText.text = "Lv6以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "自分の体力を7割回復";
+      CTText.text = "12";
+      CommandNum = 13;
+    }
   }
 
   void Skill14()
@@ -267,10 +366,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 14)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "3Tの間、敵全体の攻撃力を5割ダウン";
-    CTText.text = "8";
-    CommandNum = 14;
+    else if (PlayerData.Lv < 8)
+    {
+      ExplainText.text = "Lv8以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "3Tの間、敵全体の攻撃力を5割ダウン";
+      CTText.text = "8";
+      CommandNum = 14;
+    }
   }
 
   void Skill15()
@@ -278,10 +388,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 15)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "3Tの間、敵全体の防御力を5割ダウン";
-    CTText.text = "8";
-    CommandNum = 15;
+    else if (PlayerData.Lv < 8)
+    {
+      ExplainText.text = "Lv8以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "3Tの間、敵全体の防御力を5割ダウン";
+      CTText.text = "8";
+      CommandNum = 15;
+    }
   }
 
   void Skill16()
@@ -289,10 +410,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 16)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに4Tの間、ターン終了時に最大体力の5%のダメージを受ける毒を付与する";
-    CTText.text = "5";
-    CommandNum = 16;
+    else if (PlayerData.Lv < 10)
+    {
+      ExplainText.text = "Lv10以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに4Tの間、ターン終了時に最大体力の5%のダメージを受ける毒を付与する";
+      CTText.text = "5";
+      CommandNum = 16;
+    }
   }
 
   void Skill17()
@@ -300,10 +432,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 17)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに4Tの間、ターン終了時に自分の攻撃力の10%のダメージを受ける火傷を付与する";
-    CTText.text = "5";
-    CommandNum = 17;
+    else if (PlayerData.Lv < 10)
+    {
+      ExplainText.text = "Lv10以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに4Tの間、ターン終了時に自分の攻撃力の10%のダメージを受ける火傷を付与する";
+      CTText.text = "5";
+      CommandNum = 17;
+    }
   }
 
   void Skill18()
@@ -311,10 +454,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 18)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに2Tの間、敵を沈黙状態にする";
-    CTText.text = "5";
-    CommandNum = 18;
+    else if (PlayerData.Lv < 10)
+    {
+      ExplainText.text = "Lv10以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに2Tの間、敵を沈黙状態にする";
+      CTText.text = "5";
+      CommandNum = 18;
+    }
   }
 
   void Skill19()
@@ -322,10 +476,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 19)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に攻撃力×Xのダメージ Xは敵が受けている状態異常の数を3倍した数である";
-    CTText.text = "3";
-    CommandNum = 19;
+    else if (PlayerData.Lv < 10)
+    {
+      ExplainText.text = "Lv10以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に攻撃力×3Xのダメージ Xはその敵が受けている状態異常の数である";
+      CTText.text = "3";
+      CommandNum = 19;
+    }
   }
 
   void Skill20()
@@ -333,10 +498,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 20)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、自分の攻撃力×3.5";
-    CTText.text = "10";
-    CommandNum = 20;
+    else if (PlayerData.Lv < 15)
+    {
+      ExplainText.text = "Lv15以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、自分の攻撃力×3.5";
+      CTText.text = "9";
+      CommandNum = 20;
+    }
   }
 
   void Skill21()
@@ -344,10 +520,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 21)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、自分の防御力×3.5";
-    CTText.text = "9";
-    CommandNum = 21;
+    else if (PlayerData.Lv < 15)
+    {
+      ExplainText.text = "Lv15以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、自分の防御力×3.5";
+      CTText.text = "9";
+      CommandNum = 21;
+    }
   }
 
   void Skill22()
@@ -355,10 +542,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 22)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "2Tの間、被ダメージを10割カット";
-    CTText.text = "10";
-    CommandNum = 22;
+    else if (PlayerData.Lv < 15)
+    {
+      ExplainText.text = "Lv15以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "2Tの間、被ダメージを10割カット";
+      CTText.text = "10";
+      CommandNum = 22;
+    }
   }
 
   void Skill23()
@@ -366,10 +564,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 23)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "自分の体力を10割回復";
-    CTText.text = "14";
-    CommandNum = 23;
+    else if (PlayerData.Lv < 15)
+    {
+      ExplainText.text = "Lv15以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "自分の体力を10割回復";
+      CTText.text = "14";
+      CommandNum = 23;
+    }
   }
 
   void Skill24()
@@ -377,10 +586,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 24)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "2Tの間、敵全体の攻撃力を10割ダウン";
-    CTText.text = "10";
-    CommandNum = 24;
+    else if (PlayerData.Lv < 18)
+    {
+      ExplainText.text = "Lv18以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "2Tの間、敵全体の攻撃力を10割ダウン";
+      CTText.text = "10";
+      CommandNum = 24;
+    }
   }
 
   void Skill25()
@@ -388,10 +608,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 25)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "2Tの間、敵全体の防御力を10割ダウン";
-    CTText.text = "3";
-    CommandNum = 25;
+    else if (PlayerData.Lv < 18)
+    {
+      ExplainText.text = "Lv18以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "2Tの間、敵全体の防御力を10割ダウン";
+      CTText.text = "10";
+      CommandNum = 25;
+    }
   }
 
   void Skill26()
@@ -399,10 +630,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 26)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵全体に攻撃力×1.0のダメージを与える　さらに敵全体のバフを全て解除する";
-    CTText.text = "3";
-    CommandNum = 26;
+    else if (PlayerData.Lv < 21)
+    {
+      ExplainText.text = "Lv21以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵全体に攻撃力×1.0のダメージを与える　さらに敵全体のバフを全て解除する";
+      CTText.text = "3";
+      CommandNum = 26;
+    }
   }
 
   void Skill27()
@@ -410,10 +652,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 27)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、自分の攻撃力×5.0";
-    CTText.text = "12";
-    CommandNum = 27;
+    else if (PlayerData.Lv < 24)
+    {
+      ExplainText.text = "Lv24以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、自分の攻撃力×5.0";
+      CTText.text = "10";
+      CommandNum = 27;
+    }
   }
 
   void Skill28()
@@ -421,10 +674,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 28)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "4Tの間、通常攻撃による与ダメージだけ自分の体力を回復する";
-    CTText.text = "10";
-    CommandNum = 28;
+    else if (PlayerData.Lv < 27)
+    {
+      ExplainText.text = "Lv27以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "4Tの間、通常攻撃による与ダメージだけ自分の体力を回復する";
+      CTText.text = "10";
+      CommandNum = 28;
+    }
   }
 
   void Skill29()
@@ -432,10 +696,21 @@ public class Create : MonoBehaviour
     if (CommandNum == 29)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に直前のターンに受けた被ダメージと同じダメージを与える";
-    CTText.text = "6";
-    CommandNum = 29;
+    else if (PlayerData.Lv < 27)
+    {
+      ExplainText.text = "Lv27以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に直前のターンに受けた被ダメージと同じダメージを与える";
+      CTText.text = "6";
+      CommandNum = 29;
+    }
   }
 
   void Skill30()
@@ -443,20 +718,32 @@ public class Create : MonoBehaviour
     if (CommandNum == 30)
     {
       OnCommandDecideMenu();
+      return;
     }
-    ExplainText.text = "敵1体に「自分のターン終了時、自分の体力の最大値を1割減らす」呪いを5T付与する";
-    CTText.text = "10";
-    CommandNum = 30;
+    else if (PlayerData.Lv < 30)
+    {
+      ExplainText.text = "Lv30以上で解放";
+      CTText.text = "-";
+      CommandNum = 0;
+      return;
+    }
+    else
+    {
+      ExplainText.text = "敵1体に「自分のターン終了時、自分の体力の最大値を1割減らす」呪いを5T付与する";
+      CTText.text = "8";
+      CommandNum = 30;
+    }
   }
 
   public void OnCommandDecideMenu()
   {
     DecideScript.CommandNum = CommandNum;
     CommandNum = 0;
+    ExplainText.text = "";
+    CTText.text = "-";
     CommandDecideMenu.SetActive(true);
     CommandMenu[0].SetActive(false);
     CommandMenu[1].SetActive(false);
-    return;
   }
 
 

@@ -9,6 +9,8 @@ public class CommandDecideScript : MonoBehaviour
   public int CommandNum;
   public int[] OldNum;
   public bool[] changed;
+  public GameObject[] CommandMenu;
+  public GameObject CommandDecideMenu;
 
   // Use this for initialization
   void Start()
@@ -34,6 +36,7 @@ public class CommandDecideScript : MonoBehaviour
     {
       PlayerData.CommandNum[1] = OldNum[1];
       changed[1] = false;
+      return;
     }
     else if (!changed[1])
     {
@@ -48,6 +51,7 @@ public class CommandDecideScript : MonoBehaviour
     {
       PlayerData.CommandNum[2] = OldNum[2];
       changed[2] = false;
+      return;
     }
     else if (!changed[2])
     {
@@ -62,6 +66,7 @@ public class CommandDecideScript : MonoBehaviour
     {
       PlayerData.CommandNum[3] = OldNum[3];
       changed[3] = false;
+      return;
     }
     else if (!changed[3])
     {
@@ -76,6 +81,7 @@ public class CommandDecideScript : MonoBehaviour
     {
       PlayerData.CommandNum[4] = OldNum[4];
       changed[4] = false;
+      return;
     }
     else if (!changed[4])
     {
@@ -86,9 +92,22 @@ public class CommandDecideScript : MonoBehaviour
   }
   public void NumberReset()
   {
-    PlayerData.CommandNum[1] = OldNum[1];
-    PlayerData.CommandNum[2] = OldNum[2];
-    PlayerData.CommandNum[3] = OldNum[3];
-    PlayerData.CommandNum[4] = OldNum[4];
+    for (int i = 1; i <= 4; i++)
+    {
+      PlayerData.CommandNum[i] = OldNum[i];
+      changed[i] = false;
+    }
+  }
+
+  public void Finish()
+  {
+    for (int i = 1; i <= 4; i++)
+    {
+      changed[i] = false;
+    }
+    CommandNum = 0;
+    CommandDecideMenu.SetActive(false);
+    CommandMenu[0].SetActive(true);
+    CommandMenu[1].SetActive(true);
   }
 }

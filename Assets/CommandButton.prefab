@@ -145,7 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerData: {fileID: 11400000, guid: 93ac272aed00a024a8d4a8100104bac3, type: 2}
   Num: 30
-  Button: {fileID: 0}
+  Button: {fileID: 114451628405551690}
+  blackcolor: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
 --- !u!114 &114790233551813880
 MonoBehaviour:
   m_ObjectHideFlags: 1

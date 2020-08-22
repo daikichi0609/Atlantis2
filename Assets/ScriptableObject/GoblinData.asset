@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: GoblinData
   m_EditorClassIdentifier: 
   enemyName: Goblin
-  maxHp: 2000
+  maxHp: 1000
   at: 500
   df: 100
+  ct: 0000000003000000030000000800000008000000

@@ -11,12 +11,10 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
 
-    public string enemyName;
-
-    public int maxHp;
-
-    public int at;
-
-    public int df;
+  public string enemyName;
+  public int maxHp;
+  public int at;
+  public int df;
+  public int[] ct;
 
 }
