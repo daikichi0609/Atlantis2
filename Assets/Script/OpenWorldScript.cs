@@ -41,6 +41,7 @@ public class OpenWorldScript : MonoBehaviour
         BattleParam.Stop = false;
         Menu.SetActive(false);
         MenuOn = false;
+        return;
       }
       else if (StatusMenuOn)
       {
@@ -49,6 +50,7 @@ public class OpenWorldScript : MonoBehaviour
         Menu.SetActive(true);
         MenuOn = true;
         CalculateStatus();
+        return;
       }
       else if (CommandMenuOn)
       {
@@ -57,6 +59,7 @@ public class OpenWorldScript : MonoBehaviour
         CommandMenuOn = false;
         Menu.SetActive(true);
         MenuOn = true;
+        return;
       }
       else if (StarMenuOn)
       {
@@ -66,12 +69,17 @@ public class OpenWorldScript : MonoBehaviour
         Menu.SetActive(true);
         MenuOn = true;
         CalculateStatus();
+        return;
       }
       else
       {
-        BattleParam.Stop = true;
-        Menu.SetActive(true);
-        MenuOn = true;
+        if (!BattleParam.Stop)
+        {
+          BattleParam.Stop = true;
+          Menu.SetActive(true);
+          MenuOn = true;
+          return;
+        }
       }
     }
     LvText.text = PlayerData.Lv.ToString();
@@ -144,7 +152,7 @@ public class OpenWorldScript : MonoBehaviour
   {
     PlayerData.BasicAt = 100 + (PlayerData.Lv - 1) * 2;
     PlayerData.BasicDf = 50 + (PlayerData.Lv - 1) * 1;
-    PlayerData.BasicHP = 500 + (PlayerData.Lv - 1) * 50;
+    PlayerData.BasicHP = 500 + (PlayerData.Lv - 1) * 5;
 
     if (BattleParam.Leo)
     {

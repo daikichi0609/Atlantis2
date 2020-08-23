@@ -69,7 +69,12 @@ public class Enemy : MonoBehaviour
   }
   public void OnDamage(int _damage)
   {
-    hp -= _damage - df;
+    _damage = _damage - df;
+    if (_damage <= 0)
+    {
+      _damage = 1;
+    }
+    hp -= _damage;
     if (hp <= 0)
     {
       hp = 0;
@@ -80,9 +85,14 @@ public class Enemy : MonoBehaviour
   public void OnSuccessiveDamage(int _damage)
   {
     attackNum = Random.Range(2, 6);
+    _damage = _damage - df;
+    if (_damage <= 0)
+    {
+      _damage = 1;
+    }
     for (int i = 0; i <= attackNum; i++)
     {
-      hp -= _damage - df;
+      hp -= _damage;
     }
     if (hp <= 0)
     {
@@ -109,7 +119,7 @@ public class Enemy : MonoBehaviour
     switch (type)
     {
       case EnemyType.GOBLIN:
-        if (ct[4] != 0)
+        if (ct[4] == 0)
         {
           ct[4] = maxct[4];
           df = df + savedf;
@@ -119,7 +129,7 @@ public class Enemy : MonoBehaviour
           Debug.Log("4");
           return;
         }
-        else if (ct[3] != 0)
+        else if (ct[3] == 0)
         {
           ct[3] = maxct[3];
           at = at + saveat;
@@ -129,7 +139,7 @@ public class Enemy : MonoBehaviour
           Debug.Log("3");
           return;
         }
-        else if (ct[1] != 0)
+        else if (ct[1] == 0)
         {
           ct[1] = maxct[1];
           magni = 2.0f;
@@ -139,7 +149,7 @@ public class Enemy : MonoBehaviour
           Debug.Log("1");
           return;
         }
-        else if (ct[2] != 0)
+        else if (ct[2] == 0)
         {
           ct[2] = maxct[2];
           magni = 1.5f;

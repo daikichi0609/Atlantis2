@@ -12,9 +12,9 @@ public class EnemyData : ScriptableObject
 {
 
   public string enemyName;
-  public int maxHp;
   public int at;
   public int df;
+  public int maxHp;
   public int[] ct;
 
 }

@@ -52,20 +52,30 @@ public class Player : MonoBehaviour
     {
       _damage = (int)(_damage * 0.5f);
     }
-    hp -= _damage - df;
+    _damage = _damage - df;
+    if (_damage <= 0)
+    {
+      _damage = 1;
+    }
+    hp -= _damage;
     DamageSound.Play();
     HPSlider.value = hp;
   }
 
   public void OnSuccessiveDamage(int _damage, int _attackNum)
   {
+    _damage = _damage - df;
     if (barrier[1])
     {
       _damage = (int)(_damage * 0.5f);
     }
+    if (_damage <= 0)
+    {
+      _damage = 1;
+    }
     for (int i = 0; i <= _attackNum; i++)
     {
-      hp -= _damage - df;
+      hp -= _damage;
     }
     if (hp <= 0)
     {
