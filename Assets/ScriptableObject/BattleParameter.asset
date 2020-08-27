@@ -15,10 +15,10 @@ MonoBehaviour:
   init_pos: {x: 0, y: 14.4, z: 0}
   rot: {x: 0, y: 0, z: 0, w: 0}
   inti_rot: {x: 0, y: 0, z: 0, w: 0}
-  Stage: 0
-  Stop: 1
+  Stage: 4
+  Stop: 0
   destroy: 00000000000000000000
-  vs: 010100000000
+  vs: 010101010101
   Trigger: 0
   Starting: 1
   night: 0

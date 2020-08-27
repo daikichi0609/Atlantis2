@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class OpenWorldScript : MonoBehaviour
 {
   public BattleParam BattleParam;
+  public BattlePanelScript BattlePanel;
   public GameObject Menu;
   private bool MenuOn;
   public GameObject StatusMenu;
@@ -24,11 +25,16 @@ public class OpenWorldScript : MonoBehaviour
   public Image Starimage;
   private Sprite sprite;
   public Text StarText;
+  public GameObject[] walls;
 
   // Use this for initialization
   void Start()
   {
-
+    CalculateStatus();
+    if (PlayerData.Lv >= 5)
+    {
+      Destroy(walls[0]);
+    }
   }
 
   // Update is called once per frame
@@ -36,6 +42,10 @@ public class OpenWorldScript : MonoBehaviour
   {
     if (Input.GetKeyDown(KeyCode.Space))
     {
+      if (BattlePanel.Info)
+      {
+        return;
+      }
       if (MenuOn)
       {
         BattleParam.Stop = false;
@@ -152,7 +162,7 @@ public class OpenWorldScript : MonoBehaviour
   {
     PlayerData.BasicAt = 100 + (PlayerData.Lv - 1) * 2;
     PlayerData.BasicDf = 50 + (PlayerData.Lv - 1) * 1;
-    PlayerData.BasicHP = 500 + (PlayerData.Lv - 1) * 5;
+    PlayerData.BasicHP = 1000 + (PlayerData.Lv - 1) * 5;
 
     if (BattleParam.Leo)
     {

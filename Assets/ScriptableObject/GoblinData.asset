@@ -14,5 +14,5 @@ MonoBehaviour:
   enemyName: Goblin
   at: 120
   df: 60
-  maxHp: 300
+  maxHp: 800
   ct: 0000000003000000030000000800000008000000

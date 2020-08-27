@@ -136,7 +136,7 @@ public class Create : MonoBehaviour
     {
       OnCommandDecideMenu();
     }
-    ExplainText.text = "敵1体に攻撃力×1.2のダメージ　これをランダムに2~5回与える";
+    ExplainText.text = "敵1体に攻撃力×1.2のダメージ\nこれをランダムに2~5回与える";
     CTText.text = "3";
     CommandNum = 2;
   }
@@ -201,7 +201,7 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵1体に攻撃力×1.2の貫通ダメージ　これをランダムに2~5回与える";
+      ExplainText.text = "敵1体に攻撃力×1.2の貫通ダメージ\nこれをランダムに2~5回与える";
       CTText.text = "4";
       CommandNum = 6;
     }
@@ -223,7 +223,7 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵1体に攻撃力×1.0のダメージ 敵がダメージカット展開中なら、代わりに攻撃力×4.0のダメージ";
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ\n敵がダメージカット展開中なら、代わりに攻撃力×4.0のダメージ";
       CTText.text = "3";
       CommandNum = 7;
     }
@@ -246,7 +246,7 @@ public class Create : MonoBehaviour
     else
     {
       ExplainText.text = "敵全体に攻撃力×2.5のダメージを与える";
-      CTText.text = "3";
+      CTText.text = "4";
       CommandNum = 8;
     }
   }
@@ -268,7 +268,7 @@ public class Create : MonoBehaviour
     else
     {
       ExplainText.text = "敵全体に攻撃力×2.5の貫通ダメージを与える";
-      CTText.text = "4";
+      CTText.text = "5";
       CommandNum = 9;
     }
   }
@@ -378,7 +378,7 @@ public class Create : MonoBehaviour
     else
     {
       ExplainText.text = "3Tの間、敵全体の攻撃力を5割ダウン";
-      CTText.text = "8";
+      CTText.text = "6";
       CommandNum = 14;
     }
   }
@@ -400,7 +400,7 @@ public class Create : MonoBehaviour
     else
     {
       ExplainText.text = "3Tの間、敵全体の防御力を5割ダウン";
-      CTText.text = "8";
+      CTText.text = "6";
       CommandNum = 15;
     }
   }
@@ -421,8 +421,8 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに4Tの間、ターン終了時に最大体力の5%のダメージを受ける毒を付与する";
-      CTText.text = "5";
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ\nさらに4Tの間、ターン終了時に最大体力の5%のダメージを受ける毒を付与する";
+      CTText.text = "6";
       CommandNum = 16;
     }
   }
@@ -443,8 +443,8 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに4Tの間、ターン終了時に自分の攻撃力の10%のダメージを受ける火傷を付与する";
-      CTText.text = "5";
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ\nさらに4Tの間、ターン終了時に自分の攻撃力の10%のダメージを受ける火傷を付与する";
+      CTText.text = "6";
       CommandNum = 17;
     }
   }
@@ -465,8 +465,8 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵1体に攻撃力×1.0のダメージ　さらに2Tの間、敵を沈黙状態にする";
-      CTText.text = "5";
+      ExplainText.text = "敵1体に攻撃力×1.0のダメージ\nさらに2Tの間、敵を沈黙状態にする";
+      CTText.text = "6";
       CommandNum = 18;
     }
   }
@@ -487,7 +487,7 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵1体に攻撃力×3Xのダメージ Xはその敵が受けている状態異常の数である";
+      ExplainText.text = "敵1体に攻撃力×3Xのダメージ\nXはその敵が受けている状態異常の数である";
       CTText.text = "3";
       CommandNum = 19;
     }
@@ -641,7 +641,7 @@ public class Create : MonoBehaviour
     }
     else
     {
-      ExplainText.text = "敵全体に攻撃力×1.0のダメージを与える　さらに敵全体のバフを全て解除する";
+      ExplainText.text = "敵全体に攻撃力×1.0のダメージを与える\nさらに敵全体のバフを全て解除する";
       CTText.text = "3";
       CommandNum = 26;
     }

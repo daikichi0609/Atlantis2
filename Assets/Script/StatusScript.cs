@@ -29,15 +29,14 @@ public class StatusScript : MonoBehaviour
     dfmagni = PlayerData.DfMagni;
     hpmagni = PlayerData.HPMagni;
 
-    AtSlider.value = atmagni;
-    DfSlider.value = dfmagni;
-    HPSlider.value = hpmagni;
+    AtSlider.value = atmagni * 20;
+    DfSlider.value = dfmagni * 20;
+    HPSlider.value = hpmagni * 20;
   }
 
   // Update is called once per frame
   void Update()
   {
-
     LvText.text = PlayerData.Lv.ToString();
     BasicAtText.text = PlayerData.BasicAt.ToString();
     BasicDfText.text = PlayerData.BasicDf.ToString();
@@ -49,9 +48,9 @@ public class StatusScript : MonoBehaviour
     }
     else
     {
-      atmagni = AtSlider.value;
-      dfmagni = DfSlider.value;
-      hpmagni = HPSlider.value;
+      atmagni = AtSlider.value * 0.05f;
+      dfmagni = DfSlider.value * 0.05f;
+      hpmagni = HPSlider.value * 0.05f;
     }
 
     if (atmagni - PlayerData.AtMagni >= 0.05f)
